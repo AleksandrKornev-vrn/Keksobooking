@@ -3,17 +3,10 @@
 
   var MAP_PIN_HEIGHT = 65;
 
-  var mapElement = document.querySelector(".map");
-
-  var mapPinsElement = mapElement.querySelector(".map__pins");
-
-  var templateElement = document.querySelector("template").content;
-
   window.mapPins = {
     createMapPinElement : function (object) {
-      var mapPinElement = templateElement.querySelector(".map__pin").cloneNode(true);
+      var mapPinElement = page.templateElement.querySelector(".map__pin").cloneNode(true);
       var locationX = Math.floor(object.location.mapX + MAP_PIN_WIDTH / 2);
-      console.log(object.location.mapX);
       var locationY = Math.floor(object.location.mapY + MAP_PIN_HEIGHT);
       mapPinElement.style =
         "left: " + locationX + "px; " + "top: " + locationY + "px;";
@@ -30,7 +23,7 @@
       for (var i = 0; i < ads.length; i++) {
         fragment.appendChild(this.createMapPinElement(ads[i]));
       }
-      mapPinsElement.appendChild(fragment);
+      page.mapPinsElement.appendChild(fragment);
     }
   };
 })();

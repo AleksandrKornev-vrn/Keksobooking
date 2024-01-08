@@ -1,21 +1,58 @@
 (function () {
+  var offerTypeMap = {
+    flat: "Квартира",
+    bungalo: "Бунгало",
+    house: "Дом",
+    palace: "Дворец",
+  };
 
-  
-  window.mapCard = {
-    addMapCardToThePage : function (object) {
-      console.log (object.location.mapX)
+  var fillTheCapacityBlock = function (object) {
+    var textRooms;
+    var textGuests;
+    if (object.offer.rooms === 1) {
+      textRooms = object.offer.rooms + " комната для ";
+    } else if (object.offer.rooms > 1 && object.offer.rooms < 5) {
+      textRooms = object.offer.rooms + " комнаты для ";
+    } else {
+      textRooms = object.offer.rooms + " комнат для ";
     }
+    if (object.offer.guests === 1) {
+      textGuests = object.offer.guests + " гостя";
+    } else {
+      textGuests = object.offer.guests + " гостей";
+    }
+    return textRooms + textGuests;
+  };
+
+  var fillTheFeaturesBlock = function (object, element) {
+    var popupFeaturesElement = element.querySelector(".popup__features");
+    var featuresElements = element.querySelectorAll(".feature");
+    var features = object.offer.features;
+    for (var i = 0; i < featuresElements.length; i++) {
+      if (featuresElements[i].className.indexOf(features[i]) === -1) {
+        popupFeaturesElement.removeChild(featuresElements[i]);
+      }
+    }
+  };
+
+  window.mapCard = {
+    addMapCardToThePage: function (object) {
+      var mapCardElement = page.templateElement.querySelector(".map__card").cloneNode(true);
+      mapCardElement.querySelector(".popup__title").textContent = object.offer.title;
+      mapCardElement.querySelector(".popup__text--address").textContent = object.offer.address + ", " + object.location.mapX + "/" + object.location.mapY;
+      mapCardElement.querySelector(".popup__text--price").textContent = object.offer.price + " ₽" + "/ночь";
+      mapCardElement.querySelector(".popup__type").textContent = offerTypeMap[object.offer.type];
+      mapCardElement.querySelector(".popup__text--capacity").textContent = fillTheCapacityBlock(object);
+      mapCardElement.querySelector(".popup__text--time").textContent = "Заезд после " + object.offer.checkin +
+      ", выезд до " + object.offer.checkout;
+      fillTheFeaturesBlock(object, mapCardElement);
+      
+      page.mapElement.insertBefore(mapCardElement, page.mapFiltersContainerElement);
+    },
   };
 
   /*
 29.На основе первого по порядку элемента из сгенерированного массива и шаблона .map__card создайте DOM-элемент объявления, заполните его данными из объекта и вставьте полученный DOM-элемент в блок .map перед блоком.map__filters-container:
-o Выведите заголовок объявления offer.title в заголовок .popup__title.
-o Выведите адрес offer.address в блок .popup__text--address.
-o Выведите цену offer.price в блок .popup__text--price строкой вида {{offer.price}}₽/ночь. Например, 5200₽/ночь.
-o В блок .popup__type выведите тип жилья offer.type: Квартира для flat, Бунгало для bungalo, Дом для house, Дворец для palace.
-o Выведите количество гостей и комнат offer.rooms и offer.guests в блок .popup__text--capacityстрокой вида {{offer.rooms}} комнаты для {{offer.guests}} гостей. Например, 2 комнаты для 3 гостей.
-o Время заезда и выезда offer.checkin и offer.checkout в блок .popup__text--time строкой вида Заезд после {{offer.checkin}}, выезд до {{offer.checkout}}. Например, заезд после 14:00, выезд до 12:00.
-o В список .popup__features выведите все доступные удобства в объявлении.
 o В блок .popup__description выведите описание объекта недвижимости offer.description.
 o В блок .popup__photos выведите все фотографии из списка offer.photos. Каждая из строк массива photos должна записываться как src соответствующего изображения.
 Замените src у аватарки пользователя — изображения, которое записано в .popup__avatar — на значения поля author.avatar отрисовываемого объекта.*/

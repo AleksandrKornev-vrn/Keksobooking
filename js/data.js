@@ -73,15 +73,15 @@
         },
         offer: {
           title: createTitle(adNumber),
-          address: "{{location.x}}, {{location.y}}",
-          price: Math.ceil(Math.random() * (1000000 - 1000) + 1000),
+          address: "Tōkyō-to, Chiyoda-ku, Ichibanchō",
+          price: Math.ceil(Math.random() * (30000 - 1000) + 1000),
           type: getRandomValue(possibleTypes),
           rooms: Math.floor(Math.random() * 5 + 1),
           guests: Math.floor(Math.random() * 8 + 1),
           checkin: getRandomValue(possibleCheckin),
           checkout: getRandomValue(possibleCheckout),
           features: createFeatures(possibleFeatures),
-          description: "",
+          description: "Очень крутой жильё, вы не пожалее, что выбрали именно нас!",
           photos: createPhotos(possiblePhotos),
         },
         location: {
