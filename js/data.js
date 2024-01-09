@@ -31,9 +31,9 @@
     ];
 
     var possiblePhotos = [
-      "http://o0.github.io/assets/images/tokyo/hotel1.jpg",
-      "http://o0.github.io/assets/images/tokyo/hotel2.jpg",
-      "http://o0.github.io/assets/images/tokyo/hotel3.jpg",
+      "img/photosOfHousing/hotel0small.jpg",
+      "img/photosOfHousing/hotel1small.jpg",
+      "img/photosOfHousing/hotel2small.jpg",
     ];
 
     var createAvatar = function (adNumber) {
@@ -81,7 +81,7 @@
           checkin: getRandomValue(possibleCheckin),
           checkout: getRandomValue(possibleCheckout),
           features: createFeatures(possibleFeatures),
-          description: "Очень крутой жильё, вы не пожалее, что выбрали именно нас!",
+          description: "Великолепное жильё в Токио. Подходит как туристам, так и бизнесменам. Жильё полностью укомплектовано и недавно отремонтировано!",
           photos: createPhotos(possiblePhotos),
         },
         location: {

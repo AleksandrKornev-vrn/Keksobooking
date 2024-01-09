@@ -29,31 +29,69 @@
     var featuresElements = element.querySelectorAll(".feature");
     var features = object.offer.features;
     for (var i = 0; i < featuresElements.length; i++) {
-      if (featuresElements[i].className.indexOf(features[i]) === -1) {
+      if (!featuresElements[i].className.includes(features[i])) {
         popupFeaturesElement.removeChild(featuresElements[i]);
       }
     }
   };
 
+  var changeThePicture = function (element, way) {
+    element.addEventListener("mouseover", function (evt) {
+      var fragmentOne = way.slice(0, 26);
+      var fragmentTwo = way.slice(31, 35);
+      evt.target.src = fragmentOne + fragmentTwo;
+    });
+    element.addEventListener("mouseout", function (evt) {
+      evt.target.src = way;
+    });
+  };
+
+  var fillThePicturesBlock = function (object, element) {
+    var photos = object.offer.photos;
+    var popupPicturesElement = element.querySelector(".popup__pictures");
+    for (var i = 0; i < photos.length; i++) {
+      var pictureElement = popupPicturesElement.querySelector("li").cloneNode(true);
+      pictureElement.querySelector("img").src = photos[i];
+      changeThePicture(pictureElement, photos[i]);
+      popupPicturesElement.appendChild(pictureElement);
+    }
+    popupPicturesElement.removeChild(popupPicturesElement.children[0]);
+  };
+
   window.mapCard = {
-    addMapCardToThePage: function (object) {
+    onMapCardEscPress: function (evt) {
+      if (evt.keyCode === 27) {
+        window.mapCard.closeMapCard();
+      }
+    },
+    openMapCard: function (object) {
       var mapCardElement = page.templateElement.querySelector(".map__card").cloneNode(true);
+      mapCardElement.querySelector(".popup__avatar").src = object.author.avatar;
       mapCardElement.querySelector(".popup__title").textContent = object.offer.title;
       mapCardElement.querySelector(".popup__text--address").textContent = object.offer.address + ", " + object.location.mapX + "/" + object.location.mapY;
       mapCardElement.querySelector(".popup__text--price").textContent = object.offer.price + " ₽" + "/ночь";
       mapCardElement.querySelector(".popup__type").textContent = offerTypeMap[object.offer.type];
       mapCardElement.querySelector(".popup__text--capacity").textContent = fillTheCapacityBlock(object);
-      mapCardElement.querySelector(".popup__text--time").textContent = "Заезд после " + object.offer.checkin +
-      ", выезд до " + object.offer.checkout;
+      mapCardElement.querySelector(".popup__text--time").textContent = "Заезд после " + object.offer.checkin + ", выезд до " + object.offer.checkout;
+      mapCardElement.querySelector(".popup__description").textContent = object.offer.description;
       fillTheFeaturesBlock(object, mapCardElement);
-      
+      fillThePicturesBlock(object, mapCardElement);
       page.mapElement.insertBefore(mapCardElement, page.mapFiltersContainerElement);
+      var popupCloseElement = page.mapElement.querySelector(".popup__close");
+      popupCloseElement.addEventListener("click", function () {
+        window.mapCard.closeMapCard();
+      });
+      popupCloseElement.addEventListener("keydown", function (evt) {
+        if (evt.keyCode === 13) {
+          window.mapCard.closeMapCard();
+        }
+      });
+      document.addEventListener("keydown", window.mapCard.onMapCardEscPress);
+    },
+    closeMapCard: function () {
+      var mapCardElement = page.mapElement.querySelector(".map__card");
+      page.mapElement.removeChild(mapCardElement);
+      document.removeEventListener("keydown", window.mapCard.onMapCardEscPress);
     },
   };
-
-  /*
-29.На основе первого по порядку элемента из сгенерированного массива и шаблона .map__card создайте DOM-элемент объявления, заполните его данными из объекта и вставьте полученный DOM-элемент в блок .map перед блоком.map__filters-container:
-o В блок .popup__description выведите описание объекта недвижимости offer.description.
-o В блок .popup__photos выведите все фотографии из списка offer.photos. Каждая из строк массива photos должна записываться как src соответствующего изображения.
-Замените src у аватарки пользователя — изображения, которое записано в .popup__avatar — на значения поля author.avatar отрисовываемого объекта.*/
 })();
