@@ -1,7 +1,6 @@
 (function () {
-  var MAP_PIN_WIDTH = 65;
-
-  var MAP_PIN_HEIGHT = 65;
+  var MAP_PIN_WIDTH = 46;
+  var MAP_PIN_HEIGHT = 64;
 
   window.mapPins = {
     createMapPinElement: function (object) {
