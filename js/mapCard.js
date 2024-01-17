@@ -79,19 +79,19 @@
       page.mapElement.insertBefore(mapCardElement, page.mapFiltersContainerElement);
       var popupCloseElement = page.mapElement.querySelector(".popup__close");
       popupCloseElement.addEventListener("click", function () {
-        window.mapCard.closeMapCard();
+        mapCard.closeMapCard();
       });
       popupCloseElement.addEventListener("keydown", function (evt) {
         if (evt.keyCode === 13) {
-          window.mapCard.closeMapCard();
+          mapCard.closeMapCard();
         }
       });
-      document.addEventListener("keydown", window.mapCard.onMapCardEscPress);
+      document.addEventListener("keydown", mapCard.onMapCardEscPress);
     },
     closeMapCard: function () {
       var mapCardElement = page.mapElement.querySelector(".map__card");
       page.mapElement.removeChild(mapCardElement);
-      document.removeEventListener("keydown", window.mapCard.onMapCardEscPress);
+      document.removeEventListener("keydown", mapCard.onMapCardEscPress);
     },
   };
 })();
