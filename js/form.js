@@ -48,40 +48,28 @@
         }
       }
     },
+
     onRoomNumberSelectElementChange: function (evt) {
-      switch (evt.target.value) {
-        case "1":
-          page.capacitySelectOptionsElements[0].selected = true;
-          page.capacitySelectOptionsElements[0].disabled = false;
-          page.capacitySelectOptionsElements[1].disabled = true;
-          page.capacitySelectOptionsElements[2].disabled = true;
-          page.capacitySelectOptionsElements[3].disabled = true;
-          break;
-        case "2":
-          page.capacitySelectOptionsElements[1].selected = true;
-          page.capacitySelectOptionsElements[0].disabled = false;
-          page.capacitySelectOptionsElements[1].disabled = false;
-          page.capacitySelectOptionsElements[2].disabled = true;
-          page.capacitySelectOptionsElements[3].disabled = true;
-          break;
-        case "3":
-          page.capacitySelectOptionsElements[2].selected = true;
-          page.capacitySelectOptionsElements[0].disabled = false;
-          page.capacitySelectOptionsElements[1].disabled = false;
-          page.capacitySelectOptionsElements[2].disabled = false;
-          page.capacitySelectOptionsElements[3].disabled = true;
-          break;
-        case "100":
-          page.capacitySelectOptionsElements[3].selected = true;
+      page.capacitySelectOptionsElements[0].selected = true;
+      for (var j=1; j<page.capacitySelectOptionsElements.length; j++) {
+        page.capacitySelectOptionsElements[j].disabled = true;
+      };
+
+      for (var i=0; i<page.capacitySelectOptionsElements.length; i++) {
+        if (evt.target.value !== page.capacitySelectOptionsElements[i].value && evt.target.value > page.capacitySelectOptionsElements[i].value) {
+          page.capacitySelectOptionsElements[i].disabled = false;
+          page.capacitySelectOptionsElements[page.capacitySelectOptionsElements.length-1].disabled = true;
+        }
+        if (evt.target.value === page.capacitySelectOptionsElements[i].value) {
+          page.capacitySelectOptionsElements[i].selected = true;
+          page.capacitySelectOptionsElements[i].disabled = false;
+        }
+        if (evt.target.value === "100") {
           page.capacitySelectOptionsElements[0].disabled = true;
-          page.capacitySelectOptionsElements[1].disabled = true;
-          page.capacitySelectOptionsElements[2].disabled = true;
-          page.capacitySelectOptionsElements[3].disabled = false;
-          break;
-        default:
-          throw new Error("Выбрано не верное значение");
+        }
       }
     },
+
     onFormReset: function () {
       var mapCardElement = page.mapElement.querySelector(".map__card");
       if (mapCardElement !== null) {

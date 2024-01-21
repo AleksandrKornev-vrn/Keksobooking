@@ -42,9 +42,6 @@
     }
   };
 
-  console.log(page.mapElement.querySelector(".map__card"));
-
-
   form.fillInTheDefaultAddressInput();
 
    page.mapPinMainElement.addEventListener ("mouseup", function () {
