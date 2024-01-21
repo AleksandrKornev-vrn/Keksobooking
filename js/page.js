@@ -133,8 +133,4 @@
       form.onFormReset();
     }
   });
-
 })();
-
-
-

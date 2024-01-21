@@ -77,10 +77,10 @@
       };
       page.mapPinMainImgElement.draggable = false;
       mapPins.removeMapPinsToThePage();
+      form.fillInTheDefaultAddressInput();
       page.turnActiveState();
       page.mapPinMainElement.style.left = page.mapPinMainStartCoords.mapPinMainOffSetLeft + "px";
       page.mapPinMainElement.style.top = page.mapPinMainStartCoords.mapPinMainOffSetTop + "px";
-      form.fillInTheDefaultAddressInput();
       page.noticeFormElement.querySelector("#title").value = "";
       page.typeSelectOptionsElements[0].selected = true;
       page.priceInputElement.value = "";
