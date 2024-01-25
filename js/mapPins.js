@@ -40,11 +40,14 @@
       window.jsonCallback = function (data) {
         var fragment = document.createDocumentFragment();
         data.forEach (function (item, index) {
-          if (index < 8) {
+          if (index < 5) {
             fragment.appendChild(mapPins.createMapPinElement(item));
           }
         });
         page.mapPinsElement.appendChild(fragment);
+
+        //
+
       };
       var loader = document.createElement("script");
       loader.id = "backend";

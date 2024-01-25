@@ -22,7 +22,6 @@
     capacitySelectOptionsElements: document.querySelector("#capacity").querySelectorAll("option"),
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
-    successPopupElement: document.querySelector(".success__popup"),
     templateElement: document.querySelector("template").content,
     mapPinMainStartCoords: {
       mapPinMainOffSetLeft: document.querySelector(".map__pin--main").offsetLeft,
