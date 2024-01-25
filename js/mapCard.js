@@ -1,9 +1,10 @@
 (function () {
   var offerTypeMap = {
-    flat: "Квартира",
-    bungalo: "Бунгало",
-    house: "Дом",
-    palace: "Дворец",
+    "flat": "Квартира",
+    "bungalow": "Бунгало",
+    "house": "Дом",
+    "palace": "Дворец",
+    "hotel": "Отель"
   };
 
   var fillTheCapacityBlock = function (object) {
@@ -68,7 +69,7 @@
       var mapCardElement = page.templateElement.querySelector(".map__card").cloneNode(true);
       mapCardElement.querySelector(".popup__avatar").src = object.author.avatar;
       mapCardElement.querySelector(".popup__title").textContent = object.offer.title;
-      mapCardElement.querySelector(".popup__text--address").textContent = object.offer.address + ", " + object.location.mapX + "/" + object.location.mapY;
+      mapCardElement.querySelector(".popup__text--address").textContent = object.offer.address + ", " + object.location.lat + "/" + object.location.lng;
       mapCardElement.querySelector(".popup__text--price").textContent = object.offer.price + " ₽" + "/ночь";
       mapCardElement.querySelector(".popup__type").textContent = offerTypeMap[object.offer.type];
       mapCardElement.querySelector(".popup__text--capacity").textContent = fillTheCapacityBlock(object);

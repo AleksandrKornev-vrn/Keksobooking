@@ -623,6 +623,25 @@ textarea:focus {
   font: 14px Roboto, sans-serif;
 }
 
+.success__popup {
+  width: 800px;
+
+  position: absolute;
+  left: 240px;
+  top: 170px;
+
+  background: #fff;
+  border-radius: 5px;
+
+  padding: 10px 10px 20px;
+  box-sizing: border-box;
+
+  z-index: 2;
+
+  font-size: 18px;
+
+  text-align: center;
+}
 
 .footer {
   box-sizing: border-box;

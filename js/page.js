@@ -1,5 +1,6 @@
 (function () {
   window.page = {
+    bodyElement: document.querySelector("body"),
     mapElement: document.querySelector(".map"),
     mapPinsElement: document.querySelector(".map__pins"),
     mapPinMainElement: document.querySelector(".map__pin--main"),
@@ -21,6 +22,7 @@
     capacitySelectOptionsElements: document.querySelector("#capacity").querySelectorAll("option"),
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
+    successPopupElement: document.querySelector(".success__popup"),
     templateElement: document.querySelector("template").content,
     mapPinMainStartCoords: {
       mapPinMainOffSetLeft: document.querySelector(".map__pin--main").offsetLeft,
@@ -133,4 +135,9 @@
       form.onFormReset();
     }
   });
+
+
+  page.noticeFormElement.addEventListener ("submit", function () {
+    alert ("Информация о Вашем объявлении отправлена на сервер! Ожидайте публикацию в ближайшее время!");
+  })
 })();

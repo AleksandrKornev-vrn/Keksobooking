@@ -51,23 +51,24 @@
 
     onRoomNumberSelectElementChange: function (evt) {
       page.capacitySelectOptionsElements[0].selected = true;
-      for (var j=1; j<page.capacitySelectOptionsElements.length; j++) {
-        page.capacitySelectOptionsElements[j].disabled = true;
-      };
-
-      for (var i=0; i<page.capacitySelectOptionsElements.length; i++) {
-        if (evt.target.value !== page.capacitySelectOptionsElements[i].value && evt.target.value > page.capacitySelectOptionsElements[i].value) {
-          page.capacitySelectOptionsElements[i].disabled = false;
-          page.capacitySelectOptionsElements[page.capacitySelectOptionsElements.length-1].disabled = true;
+      page.capacitySelectOptionsElements.forEach (function (item, index, array) {
+        if (index > 0) {
+          item.disabled = true;
         }
-        if (evt.target.value === page.capacitySelectOptionsElements[i].value) {
-          page.capacitySelectOptionsElements[i].selected = true;
-          page.capacitySelectOptionsElements[i].disabled = false;
+        if (item.value !== evt.target.value && item.value < evt.target.value) {
+          item.disabled = false;
+          if (index === array.length-1) {
+            item.disabled = true;
+          }
+        }
+        if (item.value === evt.target.value) {
+          item.selected = true;
+          item.disabled = false;
         }
         if (evt.target.value === "100") {
           page.capacitySelectOptionsElements[0].disabled = true;
         }
-      }
+      });
     },
 
     onFormReset: function () {
