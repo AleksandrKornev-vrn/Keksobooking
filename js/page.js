@@ -6,6 +6,14 @@
     mapPinMainElement: document.querySelector(".map__pin--main"),
     mapPinMainImgElement: document.querySelector(".map__pin--main").children[0],
     mapFiltersContainerElement: document.querySelector(".map__filters-container"),
+    housingTypeSelectElement: document.querySelector("#housing-type"),
+    housingTypeSelectOptionsElements: document.querySelector("#housing-type").querySelectorAll("option"),
+    housingPriseSelectElement: document.querySelector("#housing-price"),
+    housingPriseSelectOptionsElements: document.querySelector("#housing-price").querySelectorAll("option"),
+    housingRoomsSelectElement: document.querySelector("#housing-rooms"),
+    housingRoomsSelectOptionsElements: document.querySelector("#housing-rooms").querySelectorAll("option"),
+    housingGuestsSelectElement: document.querySelector("#housing-guests"),
+    housingGuestsSelectOptionsElements: document.querySelector("#housing-guests").querySelectorAll("option"),
     noticeFormElement: document.querySelector(".notice__form"),
     noticeFormFieldsetsElements: document.querySelector(".notice__form").querySelectorAll("fieldset"),
     addressInputElement: document.querySelector("#address"),
@@ -49,7 +57,7 @@
     if (!page.mapPinMainImgElement.draggable) {
       page.mapPinMainImgElement.draggable = true;
       page.enableActiveState();
-      mapPins.addMapPinsToThePage();
+      data.loadData();
       form.fillInTheAddressInput();
     } else {
       mapPins.addMapPinsToThePage();
@@ -134,7 +142,6 @@
       form.onFormReset();
     }
   });
-
 
   page.noticeFormElement.addEventListener ("submit", function () {
     alert ("Информация о Вашем объявлении отправлена на сервер! Ожидайте публикацию в ближайшее время!");

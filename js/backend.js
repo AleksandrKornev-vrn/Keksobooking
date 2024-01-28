@@ -880,7 +880,9 @@
           "conditioner"
         ],
         "photos": [
-          "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/earvin-huang-a8danBUbgw0.jpg"
+          "img/photosOfHousing/hotel0small.jpg",
+          "img/photosOfHousing/hotel1small.jpg",
+          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {
@@ -1470,7 +1472,9 @@
           "washer"
         ],
         "photos": [
-          "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/scott-webb-1ddol8rgUH8.jpg"
+          "img/photosOfHousing/hotel0small.jpg",
+          "img/photosOfHousing/hotel1small.jpg",
+          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {
