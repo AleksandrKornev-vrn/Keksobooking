@@ -35,6 +35,7 @@
       mapPinMainOffSetLeft: document.querySelector(".map__pin--main").offsetLeft,
       mapPinMainOffSetTop: document.querySelector(".map__pin--main").offsetTop
     },
+
     enableActiveState: function () {
       this.mapElement.classList.remove("map--faded");
       this.noticeFormElement.classList.remove("notice__form--disabled");
@@ -42,13 +43,16 @@
         item.removeAttribute("disabled");
       });
     },
+
     turnActiveState: function () {
       this.mapElement.classList.add("map--faded");
       this.noticeFormElement.classList.add("notice__form--disabled");
       this.noticeFormFieldsetsElements.forEach (function (item) {
         item.disabled = true;
       });
-    }
+    },
+
+    data: []
   };
 
   form.fillInTheDefaultAddressInput();
@@ -60,8 +64,13 @@
       data.loadData();
       form.fillInTheAddressInput();
     } else {
-      mapPins.addMapPinsToThePage();
+      window.sortData(page.data);
+      mapPins.addMapPinsToThePage(page.data);
       form.fillInTheAddressInput();
+      page.housingTypeSelectOptionsElements[0].selected = true;
+      page.housingPriseSelectOptionsElements[0].selected = true;
+      page.housingRoomsSelectOptionsElements[0].selected = true;
+      page.housingGuestsSelectOptionsElements[0].selected = true;
     }
   });
 
@@ -110,7 +119,6 @@
 
       page.mapPinMainElement.style.left = newLocation.x + "px";
       page.mapPinMainElement.style.top = newLocation.y + "px";
-
     };
     
     var onMouseUp = function (upEvt) {

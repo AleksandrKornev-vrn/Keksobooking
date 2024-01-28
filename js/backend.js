@@ -1380,8 +1380,9 @@
           "dishwasher"
         ],
         "photos": [
-          "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/gabriel-beaudry-WuQME0I_oZA.jpg",
-          "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/gracia-dharma-qTlbO6mkQH0.jpg"
+          "img/photosOfHousing/hotel0small.jpg",
+          "img/photosOfHousing/hotel1small.jpg",
+          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {

@@ -1,6 +1,9 @@
 (function () {
   var MAP_PIN_WIDTH = 46;
+
   var MAP_PIN_HEIGHT = 64;
+  
+  var numberMapPins = 5;
 
   window.mapPins = {
     createMapPinElement: function (object) {
@@ -31,73 +34,73 @@
       return mapPinElement;
     },
 
-    addMapPinsToThePage: function () {
+    addMapPinsToThePage: function (array) {
       mapPins.removeMapPinsToThePage();
       var fragment = document.createDocumentFragment();
-        ads.forEach (function (item, index) {
-          if (index < numberMapPins) {
-            fragment.appendChild(mapPins.createMapPinElement(item));
-          }
-        });
-        page.mapPinsElement.appendChild(fragment);
+      array.forEach(function (item, index) {
+        if (index < numberMapPins) {
+          fragment.appendChild(mapPins.createMapPinElement(item));
+        }
+      });
+      page.mapPinsElement.appendChild(fragment);
     },
 
-    updateMapPinsOnTheMap: function () {
+    updateMapPinsOnTheMap: function (array, type, price, room, guest) {
+      var filterArray = array;
       var getRank = function (ad) {
         var rank = 0;
-        if (ad.offer.type === housingType) {
+        if (ad.offer.type === type) {
           rank += 1;
-          filterAds = filterAds.filter (function (item) {
-            return item.offer.type === housingType;
+          filterArray = filterArray.filter(function (item) {
+            return item.offer.type === type;
           });
         }
-        if (ad.offer.priceType === housingPrice) {
+        if (ad.offer.priceType === price) {
           rank += 1;
-          filterAds = filterAds.filter (function (item) {
-            return item.offer.priceType === housingPrice;
+          filterArray = filterArray.filter(function (item) {
+            return item.offer.priceType === price;
           });
         }
-        if (ad.offer.rooms === housingRoom) {
+        if (ad.offer.rooms === room) {
           rank += 1;
-          filterAds = filterAds.filter (function (item) {
-            return item.offer.rooms === housingRoom;
+          filterArray = filterArray.filter(function (item) {
+            return item.offer.rooms === room;
           });
         }
-        if (ad.offer.guests === housingGuest) {
+        if (ad.offer.guests === guest) {
           rank += 1;
-          filterAds = filterAds.filter (function (item) {
-            return item.offer.guests === housingGuest;
+          filterArray = filterArray.filter(function (item) {
+            return item.offer.guests === guest;
           });
         }
-        return rank; 
+        return rank;
       };
-      ads.sort (function (left, right) {
+      array.sort(function (left, right) {
         var rankDiff = getRank(right) - getRank(left);
         return rankDiff;
       });
-      numberMapPins = filterAds.length;
+      numberMapPins = filterArray.length;
       if (numberMapPins <= 5) {
-        mapPins.addMapPinsToThePage();
+        mapPins.addMapPinsToThePage(array);
       }
       if (numberMapPins > 5) {
         numberMapPins = 5;
-        mapPins.addMapPinsToThePage();
+        mapPins.addMapPinsToThePage(array);
       }
       if (numberMapPins === 0) {
-        alert ("Нет объявлений с заданными параметрами!");
+        alert("Нет объявлений с заданными параметрами!");
       }
-      filterAds = ads;
     },
 
     removeMapPinsToThePage: function () {
       var mapPinElements = page.mapPinsElement.querySelectorAll(".map__pin");
       if (mapPinElements.length > 1) {
-        mapPinElements.forEach (function (item, index) {
+        mapPinElements.forEach(function (item, index) {
           if (index > 0) {
             page.mapPinsElement.removeChild(item);
           }
-        })
-      };
-    }
+        });
+      }
+    },
   };
 })();

@@ -1,5 +1,6 @@
 (function () {
   var MAP_PIN_MAIN_WIDTH = 62;
+
   var MAP_PIN_MAIN_HEIGHT = 84;
 
   var priseMap = {
@@ -23,6 +24,7 @@
             MAP_PIN_MAIN_HEIGHT / 2
         );
     },
+
     fillInTheAddressInput: function () {
       page.addressInputElement.value =
         "Tōkyō-to, Chiyoda-ku, Ichibanchō, " +
@@ -30,6 +32,7 @@
         "/" +
         Math.floor(page.mapPinMainElement.offsetTop + MAP_PIN_MAIN_HEIGHT);
     },
+
     onTypeSelectElementChange: function (evt) {
       page.typeSelectOptionsElements.forEach(function (item) {
         if (item.value === evt.target.value) {
@@ -38,6 +41,7 @@
         }
       });
     },
+
     onTimeSelectElementChange: function (evt) {
       for (var i = 0; i < page.timeinSelectOptionsElements.length; i++) {
         if (page.timeinSelectOptionsElements[i].value === evt.target.value) {
@@ -94,6 +98,6 @@
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;
       page.housingGuestsSelectOptionsElements[0].selected = true;
-    },
+    }
   };
 })();
