@@ -82,12 +82,10 @@
       numberMapPins = filterArray.length;
       if (numberMapPins <= 5) {
         mapPins.addMapPinsToThePage(array);
-      }
-      if (numberMapPins > 5) {
+      } else if (numberMapPins > 5) {
         numberMapPins = 5;
         mapPins.addMapPinsToThePage(array);
-      }
-      if (numberMapPins === 0) {
+      } else if (numberMapPins === 0) {
         alert("Нет объявлений с заданными параметрами!");
       }
     },
