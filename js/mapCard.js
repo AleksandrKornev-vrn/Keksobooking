@@ -1,10 +1,10 @@
 (function () {
   var offerTypeMap = {
-    "flat": "Квартира",
-    "bungalow": "Бунгало",
-    "house": "Дом",
-    "palace": "Дворец",
-    "hotel": "Отель"
+    flat: "Квартира",
+    bungalow: "Бунгало",
+    house: "Дом",
+    palace: "Дворец",
+    hotel: "Отель",
   };
 
   var fillTheCapacityBlock = function (object) {
@@ -51,7 +51,9 @@
     var photos = object.offer.photos;
     var popupPicturesElement = element.querySelector(".popup__pictures");
     for (var i = 0; i < photos.length; i++) {
-      var pictureElement = popupPicturesElement.querySelector("li").cloneNode(true);
+      var pictureElement = popupPicturesElement
+        .querySelector("li")
+        .cloneNode(true);
       pictureElement.querySelector("img").src = photos[i];
       changeThePicture(pictureElement, photos[i]);
       popupPicturesElement.appendChild(pictureElement);
@@ -62,22 +64,41 @@
   window.mapCard = {
     onMapCardEscPress: function (evt) {
       if (evt.keyCode === 27) {
-        window.mapCard.closeMapCard();
+        mapCard.closeMapCard();
       }
     },
     openMapCard: function (object) {
-      var mapCardElement = page.templateElement.querySelector(".map__card").cloneNode(true);
+      var mapCardElement = page.templateElement
+        .querySelector(".map__card")
+        .cloneNode(true);
       mapCardElement.querySelector(".popup__avatar").src = object.author.avatar;
-      mapCardElement.querySelector(".popup__title").textContent = object.offer.title;
-      mapCardElement.querySelector(".popup__text--address").textContent = object.offer.address + ", " + object.location.lat + "/" + object.location.lng;
-      mapCardElement.querySelector(".popup__text--price").textContent = object.offer.price + " ₽" + "/ночь";
-      mapCardElement.querySelector(".popup__type").textContent = offerTypeMap[object.offer.type];
-      mapCardElement.querySelector(".popup__text--capacity").textContent = fillTheCapacityBlock(object);
-      mapCardElement.querySelector(".popup__text--time").textContent = "Заезд после " + object.offer.checkin + ", выезд до " + object.offer.checkout;
-      mapCardElement.querySelector(".popup__description").textContent = object.offer.description;
+      mapCardElement.querySelector(".popup__title").textContent =
+        object.offer.title;
+      mapCardElement.querySelector(".popup__text--address").textContent =
+        object.offer.address +
+        ", " +
+        object.location.lat +
+        "/" +
+        object.location.lng;
+      mapCardElement.querySelector(".popup__text--price").textContent =
+        object.offer.price + " ₽" + "/ночь";
+      mapCardElement.querySelector(".popup__type").textContent =
+        offerTypeMap[object.offer.type];
+      mapCardElement.querySelector(".popup__text--capacity").textContent =
+        fillTheCapacityBlock(object);
+      mapCardElement.querySelector(".popup__text--time").textContent =
+        "Заезд после " +
+        object.offer.checkin +
+        ", выезд до " +
+        object.offer.checkout;
+      mapCardElement.querySelector(".popup__description").textContent =
+        object.offer.description;
       fillTheFeaturesBlock(object, mapCardElement);
       fillThePicturesBlock(object, mapCardElement);
-      page.mapElement.insertBefore(mapCardElement, page.mapFiltersContainerElement);
+      page.mapElement.insertBefore(
+        mapCardElement,
+        page.mapFiltersContainerElement
+      );
       var popupCloseElement = page.mapElement.querySelector(".popup__close");
       popupCloseElement.addEventListener("click", function () {
         mapCard.closeMapCard();
@@ -91,8 +112,10 @@
     },
     closeMapCard: function () {
       var mapCardElement = page.mapElement.querySelector(".map__card");
-      page.mapElement.removeChild(mapCardElement);
-      document.removeEventListener("keydown", mapCard.onMapCardEscPress);
+      if (mapCardElement !== null) {
+        page.mapElement.removeChild(mapCardElement);
+        document.removeEventListener("keydown", mapCard.onMapCardEscPress);
+      }
     },
   };
 })();

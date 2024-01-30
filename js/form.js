@@ -55,13 +55,13 @@
 
     onRoomNumberSelectElementChange: function (evt) {
       page.capacitySelectOptionsElements[0].selected = true;
-      page.capacitySelectOptionsElements.forEach (function (item, index, array) {
+      page.capacitySelectOptionsElements.forEach(function (item, index, array) {
         if (index > 0) {
           item.disabled = true;
         }
         if (item.value !== evt.target.value && item.value < evt.target.value) {
           item.disabled = false;
-          if (index === array.length-1) {
+          if (index === array.length - 1) {
             item.disabled = true;
           }
         }
@@ -76,10 +76,7 @@
     },
 
     onFormReset: function () {
-      var mapCardElement = page.mapElement.querySelector(".map__card");
-      if (mapCardElement !== null) {
-        mapCard.closeMapCard();
-      };
+      mapCard.closeMapCard();
       page.mapPinMainImgElement.draggable = false;
       mapPins.removeMapPinsToThePage();
       form.fillInTheDefaultAddressInput();
@@ -98,6 +95,6 @@
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;
       page.housingGuestsSelectOptionsElements[0].selected = true;
-    }
+    },
   };
 })();

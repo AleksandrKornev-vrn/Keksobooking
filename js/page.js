@@ -5,41 +5,64 @@
     mapPinsElement: document.querySelector(".map__pins"),
     mapPinMainElement: document.querySelector(".map__pin--main"),
     mapPinMainImgElement: document.querySelector(".map__pin--main").children[0],
-    mapFiltersContainerElement: document.querySelector(".map__filters-container"),
+    mapFiltersContainerElement: document.querySelector(
+      ".map__filters-container"
+    ),
     housingTypeSelectElement: document.querySelector("#housing-type"),
-    housingTypeSelectOptionsElements: document.querySelector("#housing-type").querySelectorAll("option"),
+    housingTypeSelectOptionsElements: document
+      .querySelector("#housing-type")
+      .querySelectorAll("option"),
     housingPriseSelectElement: document.querySelector("#housing-price"),
-    housingPriseSelectOptionsElements: document.querySelector("#housing-price").querySelectorAll("option"),
+    housingPriseSelectOptionsElements: document
+      .querySelector("#housing-price")
+      .querySelectorAll("option"),
     housingRoomsSelectElement: document.querySelector("#housing-rooms"),
-    housingRoomsSelectOptionsElements: document.querySelector("#housing-rooms").querySelectorAll("option"),
+    housingRoomsSelectOptionsElements: document
+      .querySelector("#housing-rooms")
+      .querySelectorAll("option"),
     housingGuestsSelectElement: document.querySelector("#housing-guests"),
-    housingGuestsSelectOptionsElements: document.querySelector("#housing-guests").querySelectorAll("option"),
+    housingGuestsSelectOptionsElements: document
+      .querySelector("#housing-guests")
+      .querySelectorAll("option"),
     noticeFormElement: document.querySelector(".notice__form"),
-    noticeFormFieldsetsElements: document.querySelector(".notice__form").querySelectorAll("fieldset"),
+    noticeFormFieldsetsElements: document
+      .querySelector(".notice__form")
+      .querySelectorAll("fieldset"),
     addressInputElement: document.querySelector("#address"),
     typeSelectElement: document.querySelector("#type"),
-    typeSelectOptionsElements: document.querySelector("#type").querySelectorAll("option"),
+    typeSelectOptionsElements: document
+      .querySelector("#type")
+      .querySelectorAll("option"),
     priceInputElement: document.querySelector("#price"),
     timeinSelectElement: document.querySelector("#timein"),
-    timeinSelectOptionsElements: document.querySelector("#timein").querySelectorAll("option"),
+    timeinSelectOptionsElements: document
+      .querySelector("#timein")
+      .querySelectorAll("option"),
     timeoutSelectElement: document.querySelector("#timeout"),
-    timeoutSelectOptionsElements: document.querySelector("#timeout").querySelectorAll("option"),
+    timeoutSelectOptionsElements: document
+      .querySelector("#timeout")
+      .querySelectorAll("option"),
     roomNumberSelectElement: document.querySelector("#room_number"),
-    roomNumberSelectOptionsElements: document.querySelector("#room_number").querySelectorAll("option"),
+    roomNumberSelectOptionsElements: document
+      .querySelector("#room_number")
+      .querySelectorAll("option"),
     capacitySelectElement: document.querySelector("#capacity"),
-    capacitySelectOptionsElements: document.querySelector("#capacity").querySelectorAll("option"),
+    capacitySelectOptionsElements: document
+      .querySelector("#capacity")
+      .querySelectorAll("option"),
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
     templateElement: document.querySelector("template").content,
     mapPinMainStartCoords: {
-      mapPinMainOffSetLeft: document.querySelector(".map__pin--main").offsetLeft,
-      mapPinMainOffSetTop: document.querySelector(".map__pin--main").offsetTop
+      mapPinMainOffSetLeft:
+        document.querySelector(".map__pin--main").offsetLeft,
+      mapPinMainOffSetTop: document.querySelector(".map__pin--main").offsetTop,
     },
 
     enableActiveState: function () {
       this.mapElement.classList.remove("map--faded");
       this.noticeFormElement.classList.remove("notice__form--disabled");
-      this.noticeFormFieldsetsElements.forEach (function (item) {
+      this.noticeFormFieldsetsElements.forEach(function (item) {
         item.removeAttribute("disabled");
       });
     },
@@ -47,40 +70,45 @@
     turnActiveState: function () {
       this.mapElement.classList.add("map--faded");
       this.noticeFormElement.classList.add("notice__form--disabled");
-      this.noticeFormFieldsetsElements.forEach (function (item) {
+      this.noticeFormFieldsetsElements.forEach(function (item) {
         item.disabled = true;
       });
     },
 
-    data: []
+    data: [],
   };
 
   form.fillInTheDefaultAddressInput();
 
-   page.mapPinMainElement.addEventListener ("mouseup", function () {
+  page.mapPinMainElement.addEventListener("mouseup", function () {
     if (!page.mapPinMainImgElement.draggable) {
       page.mapPinMainImgElement.draggable = true;
       page.enableActiveState();
       data.loadData();
       form.fillInTheAddressInput();
     } else {
-      window.sortData(page.data);
-      mapPins.addMapPinsToThePage(page.data);
-      form.fillInTheAddressInput();
+      mapCard.closeMapCard();
+      data.housingType = "any";
+      data.housingPrice = "any";
+      data.housingRoom = "any";
+      data.housingGuest = "any";
       page.housingTypeSelectOptionsElements[0].selected = true;
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;
       page.housingGuestsSelectOptionsElements[0].selected = true;
+      mapPins.numberMapPins = 5;
+      mapPins.addMapPinsToThePage(window.sortData(page.data));
+      form.fillInTheAddressInput();
     }
   });
 
-  page.mapPinMainElement.addEventListener ("mousedown", function (evt) {
+  page.mapPinMainElement.addEventListener("mousedown", function (evt) {
     evt.preventDefault();
     var startCoords = {
       x: evt.clientX,
-      y: evt.clientY
+      y: evt.clientY,
     };
-    
+
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
       var shift = {
@@ -90,68 +118,81 @@
 
       startCoords = {
         x: moveEvt.clientX,
-        y: moveEvt.clientY
+        y: moveEvt.clientY,
       };
 
       var newLocation = {
         x: page.mapPinMainElement.offsetLeft - shift.x,
-        y: page.mapPinMainElement.offsetTop - shift.y
+        y: page.mapPinMainElement.offsetTop - shift.y,
       };
 
       var limits = {
         top: 130,
         right: page.mapElement.clientWidth,
         bottom: 630,
-        left: page.mapElement.clientLeft
+        left: page.mapElement.clientLeft,
       };
 
       if (newLocation.x > limits.right) {
         newLocation.x = limits.right;
       } else if (newLocation.x < limits.left) {
         newLocation.x = limits.left;
-      };
+      }
 
       if (newLocation.y > limits.bottom) {
         newLocation.y = limits.bottom;
       } else if (newLocation.y < limits.top) {
         newLocation.y = limits.top;
-      };
+      }
 
       page.mapPinMainElement.style.left = newLocation.x + "px";
       page.mapPinMainElement.style.top = newLocation.y + "px";
     };
-    
+
     var onMouseUp = function (upEvt) {
       upEvt.preventDefault();
-      document.removeEventListener ("mousemove", onMouseMove);
-      document.removeEventListener ("mouseup", onMouseUp);
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
     };
 
-    document.addEventListener ("mousemove", onMouseMove);
+    document.addEventListener("mousemove", onMouseMove);
 
-    document.addEventListener ("mouseup", onMouseUp);
-    
+    document.addEventListener("mouseup", onMouseUp);
   });
 
-  page.typeSelectElement.addEventListener ("change", form.onTypeSelectElementChange);
+  page.typeSelectElement.addEventListener(
+    "change",
+    form.onTypeSelectElementChange
+  );
 
-  page.timeinSelectElement.addEventListener ("change", form.onTimeSelectElementChange);
+  page.timeinSelectElement.addEventListener(
+    "change",
+    form.onTimeSelectElementChange
+  );
 
-  page.timeoutSelectElement.addEventListener ("change", form.onTimeSelectElementChange);
+  page.timeoutSelectElement.addEventListener(
+    "change",
+    form.onTimeSelectElementChange
+  );
 
-  page.roomNumberSelectElement.addEventListener ("change", form.onRoomNumberSelectElementChange);
-  
-  page.formResetElement.addEventListener ("click", function () {
+  page.roomNumberSelectElement.addEventListener(
+    "change",
+    form.onRoomNumberSelectElementChange
+  );
+
+  page.formResetElement.addEventListener("click", function () {
     form.onFormReset();
   });
 
-  page.formResetElement.addEventListener ("keydown", function (evt) {
+  page.formResetElement.addEventListener("keydown", function (evt) {
     if (evt.keycode === 13) {
       form.onFormReset();
     }
   });
 
-  page.noticeFormElement.addEventListener ("submit", function () {
-    alert ("Информация о Вашем объявлении отправлена на сервер! Ожидайте публикацию в ближайшее время!");
-  })
+  page.noticeFormElement.addEventListener("submit", function () {
+    alert(
+      "Информация о Вашем объявлении отправлена на сервер! Ожидайте публикацию в ближайшее время!"
+    );
+  });
 })();

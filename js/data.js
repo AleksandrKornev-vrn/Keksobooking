@@ -9,9 +9,9 @@
       if (document.querySelector("#backend") !== null) {
         page.bodyElement.removeChild(document.querySelector("#backend"));
       }
-      window.jsonCallback = function (data) {
-        data.ads = data;
-        page.data = data;
+      window.jsonCallback = function (dataBackend) {
+        data.ads = dataBackend;
+        page.data = dataBackend;
         data.ads.forEach(function (item) {
           if (item.offer.price < 10000) {
             item.offer.priceType = "low";
@@ -22,49 +22,68 @@
           }
         });
         mapPins.addMapPinsToThePage(data.ads);
-        page.housingTypeSelectElement.addEventListener("change", function (evt) {
-          window.sortData(data.ads);
-          data.housingType = evt.target.value;
-          mapPins.updateMapPinsOnTheMap(
-              data.ads,
-              data.housingType,
-              data.housingPrice,
-              data.housingRoom,
-              data.housingGuest
-            );
+        page.housingTypeSelectElement.addEventListener(
+          "change",
+          function (evt) {
+            mapCard.closeMapCard();
+            data.housingType = evt.target.value;
+            setTimeout(function () {
+              mapPins.updateMapPinsOnTheMap(
+                window.sortData(data.ads),
+                data.housingType,
+                data.housingPrice,
+                data.housingRoom,
+                data.housingGuest
+              );
+            }, 500);
           }
         );
-        page.housingPriseSelectElement.addEventListener("change", function (evt) {
+        page.housingPriseSelectElement.addEventListener(
+          "change",
+          function (evt) {
+            mapCard.closeMapCard();
             data.housingPrice = evt.target.value;
-            mapPins.updateMapPinsOnTheMap(
-              data.ads,
-              data.housingType,
-              data.housingPrice,
-              data.housingRoom,
-              data.housingGuest
-            );
+            setTimeout(function () {
+              mapPins.updateMapPinsOnTheMap(
+                window.sortData(data.ads),
+                data.housingType,
+                data.housingPrice,
+                data.housingRoom,
+                data.housingGuest
+              );
+            }, 500);
           }
         );
-        page.housingRoomsSelectElement.addEventListener("change", function (evt) {
+        page.housingRoomsSelectElement.addEventListener(
+          "change",
+          function (evt) {
+            mapCard.closeMapCard();
             data.housingRoom = +evt.target.value;
-            mapPins.updateMapPinsOnTheMap(
-              data.ads,
-              data.housingType,
-              data.housingPrice,
-              data.housingRoom,
-              data.housingGuest
-            );
+            setTimeout(function () {
+              mapPins.updateMapPinsOnTheMap(
+                window.sortData(data.ads),
+                data.housingType,
+                data.housingPrice,
+                data.housingRoom,
+                data.housingGuest
+              );
+            }, 500);
           }
         );
-        page.housingGuestsSelectElement.addEventListener("change", function (evt) {
+        page.housingGuestsSelectElement.addEventListener(
+          "change",
+          function (evt) {
+            mapCard.closeMapCard();
             data.housingGuest = +evt.target.value;
-            mapPins.updateMapPinsOnTheMap(
-              data.ads,
-              data.housingType,
-              data.housingPrice,
-              data.housingRoom,
-              data.housingGuest
-            );
+            setTimeout(function () {
+              mapPins.updateMapPinsOnTheMap(
+                window.sortData(data.ads),
+                data.housingType,
+                data.housingPrice,
+                data.housingRoom,
+                data.housingGuest
+              );
+            }, 500);
           }
         );
       };
@@ -72,19 +91,18 @@
       loader.id = "backend";
       loader.src = "js/backend.js";
       page.bodyElement.appendChild(loader);
-    }
+    },
   };
-  
-  window.sortData = function (array) {
-    var arrayOfRandomAds = [];
-    for (var i = 0; i < array.length; i++) {
-      var randomNumber = Math.floor(Math.random() * (array.length - i) + i);
-      var randomAd = array[randomNumber];
-      array[randomNumber] = array[i];
-      array[i] = randomAd;
-      arrayOfRandomAds.push(randomAd);
+
+  window.sortData = function (arr) {
+    var randomAds = [];
+    for (var i = 0; i < arr.length; i++) {
+      var randomNumber = Math.floor(Math.random() * (arr.length - i) + i);
+      var randomAd = arr[randomNumber];
+      arr[randomNumber] = arr[i];
+      arr[i] = randomAd;
+      randomAds.push(randomAd);
     }
-    data.ads = arrayOfRandomAds;
-    page.data = arrayOfRandomAds;
+    return randomAds;
   };
 })();

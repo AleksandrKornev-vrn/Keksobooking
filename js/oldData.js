@@ -1,5 +1,27 @@
 (function () {
-  window.data = function () {
+  var sortDataR = function (array) {
+    var arrayOfRandomAds = [];
+    console.log(arrayOfRandomAds);
+    for (var i = 0; i < array.length; i++) {
+      var randomNumber = Math.floor(Math.random() * (array.length - i) + i);
+      var randomAd = array[randomNumber];
+      console.log(randomAd);
+      array[randomNumber] = array[i];
+      array[i] = randomAd;
+      arrayOfRandomAds.push(randomAd);
+    };
+    console.log(arrayOfRandomAds);
+    return arrayOfRandomAds;
+  };
+
+
+  var numbers = [1, 2, 3, 4, 5];
+
+  console.log(sortDataR(numbers));
+  //console.log(sortDataR(numbers));
+  //console.log(sortDataR(numbers));
+
+  /*window.data = function () {
     var NUMBER_OF_ADS = 8;
 
     var ads = [];
@@ -97,4 +119,4 @@
     }
     return ads;
   };
-})();
+*/})();
