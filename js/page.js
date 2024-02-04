@@ -5,9 +5,10 @@
     mapPinsElement: document.querySelector(".map__pins"),
     mapPinMainElement: document.querySelector(".map__pin--main"),
     mapPinMainImgElement: document.querySelector(".map__pin--main").children[0],
-    mapFiltersContainerElement: document.querySelector(
-      ".map__filters-container"
-    ),
+    mapFiltersContainerElement: document.querySelector(".map__filters-container"),
+
+    mapFiltersInputElements: document.querySelector(".map__filters-container").querySelectorAll("input"),
+
     housingTypeSelectElement: document.querySelector("#housing-type"),
     housingTypeSelectOptionsElements: document
       .querySelector("#housing-type")
@@ -50,6 +51,11 @@
     capacitySelectOptionsElements: document
       .querySelector("#capacity")
       .querySelectorAll("option"),
+
+    noticeFormFeaturesInputElements: document
+    .querySelector(".notice__form")
+    .querySelector(".features").querySelectorAll("input"),
+
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
     templateElement: document.querySelector("template").content,
@@ -66,7 +72,7 @@
         item.removeAttribute("disabled");
       });
     },
-
+    
     turnActiveState: function () {
       this.mapElement.classList.add("map--faded");
       this.noticeFormElement.classList.add("notice__form--disabled");
@@ -75,9 +81,22 @@
       });
     },
 
-    data: [],
-  };
+    resetCheckedFeatures: function () {
+      page.mapFiltersInputElements.forEach (function (item) {
+        if (item.checked === true) {
+          item.checked = false;
+        }
+      });
+      page.noticeFormFeaturesInputElements.forEach (function (item) {
+        if (item.checked === true) {
+          item.checked = false;
+        }
+      })
+    },
 
+    data: []
+  };
+  
   form.fillInTheDefaultAddressInput();
 
   page.mapPinMainElement.addEventListener("mouseup", function () {
@@ -96,6 +115,7 @@
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;
       page.housingGuestsSelectOptionsElements[0].selected = true;
+      page.resetCheckedFeatures();
       mapPins.numberMapPins = 5;
       mapPins.addMapPinsToThePage(window.sortData(page.data));
       form.fillInTheAddressInput();
@@ -160,25 +180,13 @@
     document.addEventListener("mouseup", onMouseUp);
   });
 
-  page.typeSelectElement.addEventListener(
-    "change",
-    form.onTypeSelectElementChange
-  );
+  page.typeSelectElement.addEventListener("change", form.onTypeSelectElementChange);
 
-  page.timeinSelectElement.addEventListener(
-    "change",
-    form.onTimeSelectElementChange
-  );
+  page.timeinSelectElement.addEventListener("change", form.onTimeSelectElementChange);
 
-  page.timeoutSelectElement.addEventListener(
-    "change",
-    form.onTimeSelectElementChange
-  );
+  page.timeoutSelectElement.addEventListener("change", form.onTimeSelectElementChange);
 
-  page.roomNumberSelectElement.addEventListener(
-    "change",
-    form.onRoomNumberSelectElementChange
-  );
+  page.roomNumberSelectElement.addEventListener("change", form.onRoomNumberSelectElementChange);
 
   page.formResetElement.addEventListener("click", function () {
     form.onFormReset();

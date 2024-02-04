@@ -453,7 +453,7 @@ textarea:focus {
 }
 
 .map__filters .feature {
-  background-color: #f8f8f8;
+  background-color: #f8f8f8; 
   border-radius: 3px;
 }
 

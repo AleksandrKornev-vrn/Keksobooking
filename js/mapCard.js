@@ -29,18 +29,24 @@
     var popupFeaturesElement = element.querySelector(".popup__features");
     var featuresElements = element.querySelectorAll(".feature");
     var features = object.offer.features;
-    for (var i = 0; i < featuresElements.length; i++) {
-      if (!featuresElements[i].className.includes(features[i])) {
-        popupFeaturesElement.removeChild(featuresElements[i]);
+    featuresElements.forEach (function (item) {
+      if (!features.includes(item.className.slice(17))) {
+        popupFeaturesElement.removeChild(item);
       }
-    }
+    }) 
   };
 
+  var lastTimeout;
   var changeThePicture = function (element, way) {
-    element.addEventListener("mouseover", function (evt) {
-      var fragmentOne = way.slice(0, 26);
-      var fragmentTwo = way.slice(31, 35);
-      evt.target.src = fragmentOne + fragmentTwo;
+    element.addEventListener("click", function (evt) {
+      if (lastTimeout) {
+        clearTimeout(lastTimeout);
+      }
+      lastTimeout = setTimeout(function () {
+        var fragmentOne = way.slice(0, 26);
+        var fragmentTwo = way.slice(31, 35);
+        evt.target.src = fragmentOne + fragmentTwo;
+      }, 1000)
     });
     element.addEventListener("mouseout", function (evt) {
       evt.target.src = way;
@@ -55,8 +61,8 @@
         .querySelector("li")
         .cloneNode(true);
       pictureElement.querySelector("img").src = photos[i];
-      changeThePicture(pictureElement, photos[i]);
       popupPicturesElement.appendChild(pictureElement);
+      changeThePicture(pictureElement, photos[i]);
     }
     popupPicturesElement.removeChild(popupPicturesElement.children[0]);
   };

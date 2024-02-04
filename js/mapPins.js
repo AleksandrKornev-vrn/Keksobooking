@@ -39,7 +39,7 @@
       page.mapPinsElement.appendChild(fragment);
     },
 
-    updateMapPinsOnTheMap: function (array, type, price, room, guest) {
+    updateMapPinsOnTheMap: function (array, type, price, room, guest, features) {
       var filterArray = array;
       var getRank = function (ad) {
         var rank = 0;
@@ -67,6 +67,15 @@
             return item.offer.guests === guest;
           });
         }
+        features.forEach (function (el) {
+          if (ad.offer.features.includes (el)) {
+            //console.log(ad);
+            rank += 1;
+            filterArray = filterArray.filter(function (item) {
+              return item.offer.features.includes (el);
+            });
+          }
+        })
         return rank;
       };
       array.sort(function (left, right) {

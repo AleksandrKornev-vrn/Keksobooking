@@ -95,6 +95,7 @@
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;
       page.housingGuestsSelectOptionsElements[0].selected = true;
+      page.resetCheckedFeatures();
     },
   };
 })();

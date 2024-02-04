@@ -5,6 +5,7 @@
     housingPrice: "any",
     housingRoom: "any",
     housingGuest: "any",
+    housingFeatures: [],
     loadData: function () {
       if (document.querySelector("#backend") !== null) {
         page.bodyElement.removeChild(document.querySelector("#backend"));
@@ -33,7 +34,8 @@
                 data.housingType,
                 data.housingPrice,
                 data.housingRoom,
-                data.housingGuest
+                data.housingGuest,
+                data.housingFeatures
               );
             }, 500);
           }
@@ -49,7 +51,8 @@
                 data.housingType,
                 data.housingPrice,
                 data.housingRoom,
-                data.housingGuest
+                data.housingGuest,
+                data.housingFeatures
               );
             }, 500);
           }
@@ -65,7 +68,8 @@
                 data.housingType,
                 data.housingPrice,
                 data.housingRoom,
-                data.housingGuest
+                data.housingGuest,
+                data.housingFeatures
               );
             }, 500);
           }
@@ -81,11 +85,37 @@
                 data.housingType,
                 data.housingPrice,
                 data.housingRoom,
-                data.housingGuest
+                data.housingGuest,
+                data.housingFeatures
               );
             }, 500);
           }
         );
+
+
+
+
+        page.mapFiltersInputElements.forEach (function (item) {
+            item.addEventListener ("click", function (evt) {
+              mapCard.closeMapCard();
+              data.housingFeatures.push(evt.target.value);
+              setTimeout(function () {
+                mapPins.updateMapPinsOnTheMap(
+                  window.sortData(data.ads),
+                  data.housingType,
+                  data.housingPrice,
+                  data.housingRoom,
+                  data.housingGuest,
+                  data.housingFeatures
+                );
+              }, 500);
+            })
+          }
+        );
+
+
+
+
       };
       var loader = document.createElement("script");
       loader.id = "backend";
