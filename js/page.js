@@ -111,6 +111,7 @@
       data.housingPrice = "any";
       data.housingRoom = "any";
       data.housingGuest = "any";
+      data.housingFeatures = [];
       page.housingTypeSelectOptionsElements[0].selected = true;
       page.housingPriseSelectOptionsElements[0].selected = true;
       page.housingRoomsSelectOptionsElements[0].selected = true;

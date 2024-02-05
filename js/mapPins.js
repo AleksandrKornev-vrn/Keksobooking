@@ -69,7 +69,6 @@
         }
         features.forEach (function (el) {
           if (ad.offer.features.includes (el)) {
-            //console.log(ad);
             rank += 1;
             filterArray = filterArray.filter(function (item) {
               return item.offer.features.includes (el);

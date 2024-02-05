@@ -23,9 +23,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
           "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {
@@ -55,9 +53,7 @@
         ],
         "description": "У нас тут все ништяк. Ларек за углом. Шава 24 часа. Приезжайте! Интернетов нет!",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -84,9 +80,7 @@
           "washer"
         ],
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -115,8 +109,6 @@
         ],
         "description": "Хейтеров просьба не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -145,9 +137,7 @@
         ],
         "description": "Великолепная лавочка прямо в центре парка. Подходит для всех кто любит спать на свежем воздухе.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -174,9 +164,7 @@
         ],
         "description": "Замечательный дворец в старинном центре города. Только для тех кто может себе позволить дворец. Лакеев и прочих жокеев просим не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
           "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {
@@ -207,8 +195,6 @@
         ],
         "description": "Маленькая чистая квратира на краю парка. Без интернета, регистрации и СМС.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -235,9 +221,7 @@
         ],
         "description": "Квартира на первом этаже. Соседи тихие. Для всех, кто терпеть не может шума и суеты.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -264,9 +248,7 @@
         ],
         "description": "Замечательный дворец в старинном центре города. Только для тех кто может себе позволить дворец. Лакеев и прочих жокеев просим не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -295,9 +277,7 @@
         ],
         "description": "Хейтеров просьба не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -324,9 +304,7 @@
         ],
         "description": "Квартира на первом этаже. Соседи тихие. Для всех, кто терпеть не может шума и суеты.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -352,9 +330,7 @@
         ],
         "description": "Великолепная квартира-студия в центре Токио. Подходит как туристам, там и бизнесменам. Квартира полностью укомплектована и имеет свежий ремонт.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -385,9 +361,7 @@
         ],
         "description": "Маленькая квартирка на чердаке. Для самых не требовательных.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -413,9 +387,7 @@
         ],
         "description": "Великолепная квартира-студия в центре Токио. Подходит как туристам, там и бизнесменам. Квартира полностью укомплектована и имеет свежий ремонт.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -445,9 +417,7 @@
         ],
         "description": "Великолепная лавочка прямо в центре парка. Подходит для всех кто любит спать на свежем воздухе.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -478,9 +448,7 @@
         ],
         "description": "У нас тут все ништяк. Ларек за углом. Шава 24 часа. Приезжайте! Интернетов нет!",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -508,9 +476,7 @@
         ],
         "description": "Маленькая квартирка на чердаке. Для самых не требовательных.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -540,9 +506,7 @@
         ],
         "description": "Отель для ценителей истории. Почуствуй себя героем из прошлого.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -571,9 +535,7 @@
         ],
         "description": "У нас тут все ништяк. Ларек за углом. Шава 24 часа. Приезжайте! Интернетов нет!",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -601,9 +563,7 @@
         ],
         "description": "Один из лучших хостелов для душевного общения. Ужинаем вместе и играем в «Мафию» по вечерам, вкусно готовим. Ежедневная уборка, бесплатный Wi-Fi, чистое постельное белье.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -632,9 +592,7 @@
         ],
         "description": "Маленькая чистая квратира на краю парка. Без интернета, регистрации и СМС.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
           "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
         ]
       },
       "location": {
@@ -661,9 +619,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -690,9 +646,7 @@
         ],
         "description": "Маленькая квартирка на чердаке. Для самых не требовательных.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -722,9 +676,7 @@
         ],
         "description": "Отель для ценителей истории. Почуствуй себя героем из прошлого.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -755,9 +707,7 @@
         ],
         "description": "У нас тут все ништяк. Ларек за углом. Шава 24 часа. Приезжайте! Интернетов нет!",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -787,9 +737,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -820,9 +768,7 @@
         ],
         "description": "Один из лучших хостелов для душевного общения. Ужинаем вместе и играем в «Мафию» по вечерам, вкусно готовим. Ежедневная уборка, бесплатный Wi-Fi, чистое постельное белье.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -851,9 +797,7 @@
         ],
         "description": "Тут красиво, светло и уютно. Есть где разместиться компании из 5 человек. Кофе и печеньки бесплатно.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -880,9 +824,7 @@
           "conditioner"
         ],
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -911,9 +853,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -941,9 +881,7 @@
         ],
         "description": "Великолепная лавочка прямо в центре парка. Подходит для всех кто любит спать на свежем воздухе.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -969,9 +907,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1002,8 +938,6 @@
         ],
         "description": "Маленькая чистая квратира на краю парка. Без интернета, регистрации и СМС.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1034,9 +968,7 @@
         ],
         "description": "Замечательный дворец в старинном центре города. Только для тех кто может себе позволить дворец. Лакеев и прочих жокеев просим не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -1067,9 +999,7 @@
         ],
         "description": "Один из лучших хостелов для душевного общения. Ужинаем вместе и играем в «Мафию» по вечерам, вкусно готовим. Ежедневная уборка, бесплатный Wi-Fi, чистое постельное белье.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1100,8 +1030,6 @@
         ],
         "description": "Замечательный дворец в старинном центре города. Только для тех кто может себе позволить дворец. Лакеев и прочих жокеев просим не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1132,9 +1060,7 @@
         ],
         "description": "Тут красиво, светло и уютно. Есть где разместиться компании из 5 человек. Кофе и печеньки бесплатно.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -1165,9 +1091,7 @@
         ],
         "description": "Комната в трёхкомнатной квартире, подойдёт молодым путешественникам.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1193,9 +1117,7 @@
         ],
         "description": "Один из лучших хостелов для душевного общения. Ужинаем вместе и играем в «Мафию» по вечерам, вкусно готовим. Ежедневная уборка, бесплатный Wi-Fi, чистое постельное белье.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -1225,9 +1147,7 @@
         ],
         "description": "Один из лучших хостелов для душевного общения. Ужинаем вместе и играем в «Мафию» по вечерам, вкусно готовим. Ежедневная уборка, бесплатный Wi-Fi, чистое постельное белье.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel2small.jpg"
         ]
       },
       "location": {
@@ -1255,8 +1175,6 @@
         ],
         "description": "Замечательный дворец в старинном центре города. Только для тех кто может себе позволить дворец. Лакеев и прочих жокеев просим не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1288,9 +1206,7 @@
         ],
         "description": "Хейтеров просьба не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1320,9 +1236,7 @@
         ],
         "description": "Великолепная лавочка прямо в центре парка. Подходит для всех кто любит спать на свежем воздухе.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -1348,8 +1262,6 @@
         ],
         "description": "Квартира на первом этаже. Соседи тихие. Для всех, кто терпеть не может шума и суеты.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1380,9 +1292,7 @@
           "dishwasher"
         ],
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1412,8 +1322,6 @@
         ],
         "description": "Квартира на первом этаже. Соседи тихие. Для всех, кто терпеть не может шума и суеты.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1441,9 +1349,7 @@
         ],
         "description": "Хейтеров просьба не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {
@@ -1473,8 +1379,6 @@
           "washer"
         ],
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
           "img/photosOfHousing/hotel2small.jpg",
         ]
       },
@@ -1501,9 +1405,7 @@
         ],
         "description": "Великолепная лавочка прямо в центре парка. Подходит для всех кто любит спать на свежем воздухе.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel1small.jpg"
         ]
       },
       "location": {
@@ -1531,9 +1433,7 @@
         ],
         "description": "Хейтеров просьба не беспокоить.",
         "photos": [
-          "img/photosOfHousing/hotel0small.jpg",
-          "img/photosOfHousing/hotel1small.jpg",
-          "img/photosOfHousing/hotel2small.jpg",
+          "img/photosOfHousing/hotel0small.jpg"
         ]
       },
       "location": {

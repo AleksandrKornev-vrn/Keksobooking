@@ -38,7 +38,7 @@
 
   var lastTimeout;
   var changeThePicture = function (element, way) {
-    element.addEventListener("click", function (evt) {
+    element.addEventListener("mouseover", function (evt) {
       if (lastTimeout) {
         clearTimeout(lastTimeout);
       }
@@ -46,7 +46,7 @@
         var fragmentOne = way.slice(0, 26);
         var fragmentTwo = way.slice(31, 35);
         evt.target.src = fragmentOne + fragmentTwo;
-      }, 1000)
+      }, 300)
     });
     element.addEventListener("mouseout", function (evt) {
       evt.target.src = way;

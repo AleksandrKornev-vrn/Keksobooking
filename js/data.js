@@ -92,30 +92,39 @@
           }
         );
 
-
-
-
         page.mapFiltersInputElements.forEach (function (item) {
-            item.addEventListener ("click", function (evt) {
+            item.addEventListener ("change", function (evt) {
               mapCard.closeMapCard();
-              data.housingFeatures.push(evt.target.value);
-              setTimeout(function () {
-                mapPins.updateMapPinsOnTheMap(
-                  window.sortData(data.ads),
-                  data.housingType,
-                  data.housingPrice,
-                  data.housingRoom,
-                  data.housingGuest,
-                  data.housingFeatures
-                );
-              }, 500);
+              if (item.checked === true) {
+                data.housingFeatures.push(evt.target.value);
+                setTimeout(function () {
+                  mapPins.updateMapPinsOnTheMap(
+                    window.sortData(data.ads),
+                    data.housingType,
+                    data.housingPrice,
+                    data.housingRoom,
+                    data.housingGuest,
+                    data.housingFeatures
+                  );
+                }, 500);
+              } else {
+                data.housingFeatures = data.housingFeatures.filter (function (item) {
+                  return item !== evt.target.value;
+                });
+                setTimeout(function () {
+                  mapPins.updateMapPinsOnTheMap(
+                    window.sortData(data.ads),
+                    data.housingType,
+                    data.housingPrice,
+                    data.housingRoom,
+                    data.housingGuest,
+                    data.housingFeatures
+                  );
+                }, 500);
+              }
             })
           }
         );
-
-
-
-
       };
       var loader = document.createElement("script");
       loader.id = "backend";
