@@ -30,6 +30,19 @@
     noticeFormFieldsetsElements: document
       .querySelector(".notice__form")
       .querySelectorAll("fieldset"),
+      
+    avatarInputElement: document.querySelector("#avatar"),
+    noticeFormPreviewImageElement: document
+      .querySelector(".notice__preview")
+      .querySelector("img"),
+
+
+    imagesInputElement: document.querySelector("#images"),
+    formPhotoUploadElement: document
+      .querySelector(".form__photo-container")
+      .querySelector(".upload"),
+
+
     addressInputElement: document.querySelector("#address"),
     typeSelectElement: document.querySelector("#type"),
     typeSelectOptionsElements: document
@@ -59,7 +72,7 @@
     formResetElement: document.querySelector(".form__reset"),
 
     templateElement: document.querySelector("template").content,
-    
+
     mapPinMainStartCoords: {
       mapPinMainOffSetLeft:
         document.querySelector(".map__pin--main").offsetLeft,
@@ -181,6 +194,10 @@
 
     document.addEventListener("mouseup", onMouseUp);
   });
+
+  page.avatarInputElement.addEventListener("change", form.onInputTypeFileChange);
+
+  page.imagesInputElement.addEventListener("change", form.onInputTypeFileChange);
 
   page.typeSelectElement.addEventListener("change", form.onTypeSelectElementChange);
 

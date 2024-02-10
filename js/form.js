@@ -3,6 +3,8 @@
 
   var MAP_PIN_MAIN_HEIGHT = 84;
 
+  var FILE_TYPE = ["jpeg", "png", "jpg", "gif"];
+
   var priseMap = {
     bungalo: "0",
     flat: "1000",
@@ -31,6 +33,55 @@
         Math.floor(page.mapPinMainElement.offsetLeft + MAP_PIN_MAIN_WIDTH / 2) +
         "/" +
         Math.floor(page.mapPinMainElement.offsetTop + MAP_PIN_MAIN_HEIGHT);
+    },
+
+    onInputTypeFileChange: function (evt) {
+      uploadedFiles = evt.target.files;
+      for (var i = 0; i < uploadedFiles.length; i++) {
+        var coincidences = FILE_TYPE.some(function (item) {
+          return uploadedFiles[i].type.split("/")[1];
+        });
+        if (coincidences) {
+          var reader = new FileReader();
+          if (evt.target === page.avatarInputElement) {
+            reader.addEventListener("load", function () {
+              page.noticeFormPreviewImageElement.src = reader.result;
+            });
+            reader.readAsDataURL(uploadedFiles[i]);
+          } else if (evt.target === page.imagesInputElement) {
+            reader.addEventListener("load", function () {
+              var divElement = document.createElement("div");
+              divElement.classList.add("notice__preview");
+              var imageElement = document.createElement("img");
+              imageElement.src = reader.result;
+              imageElement.alt = "Фотография жилья";
+              imageElement.width = "40";
+              imageElement.height = "44";
+              divElement.appendChild(imageElement);
+              page.formPhotoUploadElement.insertBefore(
+                divElement,
+                page.imagesInputElement
+              );
+            });
+            reader.readAsDataURL(uploadedFiles[i]);
+          }
+        }
+      }
+    },
+
+    resetInputTypeFileElements: function () {
+      var noticeFormPreviewImageElement = document
+        .querySelector(".notice__preview")
+        .querySelector("img");
+      noticeFormPreviewImageElement.src = "img/muffin.png";
+      var formPhotoUploadElement = document
+        .querySelector(".form__photo-container")
+        .querySelector(".upload");
+      var noticePreviewPhotoUploadElements =
+        formPhotoUploadElement.querySelectorAll(".notice__preview");
+      noticePreviewPhotoUploadElements.forEach(function (item) {
+        formPhotoUploadElement.removeChild(item);
+      });
     },
 
     onTypeSelectElementChange: function (evt) {
@@ -80,9 +131,12 @@
       page.mapPinMainImgElement.draggable = false;
       mapPins.removeMapPinsToThePage();
       form.fillInTheDefaultAddressInput();
+      form.resetInputTypeFileElements();
       page.turnActiveState();
-      page.mapPinMainElement.style.left = page.mapPinMainStartCoords.mapPinMainOffSetLeft + "px";
-      page.mapPinMainElement.style.top = page.mapPinMainStartCoords.mapPinMainOffSetTop + "px";
+      page.mapPinMainElement.style.left =
+        page.mapPinMainStartCoords.mapPinMainOffSetLeft + "px";
+      page.mapPinMainElement.style.top =
+        page.mapPinMainStartCoords.mapPinMainOffSetTop + "px";
       page.noticeFormElement.querySelector("#title").value = "";
       page.typeSelectOptionsElements[0].selected = true;
       page.priceInputElement.value = "";
