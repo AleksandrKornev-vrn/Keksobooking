@@ -2,13 +2,13 @@
   window.page = {
     bodyElement: document.querySelector("body"),
     mapElement: document.querySelector(".map"),
+
     mapPinsElement: document.querySelector(".map__pins"),
     mapPinMainElement: document.querySelector(".map__pin--main"),
     mapPinMainImgElement: document.querySelector(".map__pin--main").children[0],
+
     mapFiltersContainerElement: document.querySelector(".map__filters-container"),
-
     mapFiltersInputElements: document.querySelector(".map__filters-container").querySelectorAll("input"),
-
     housingTypeSelectElement: document.querySelector("#housing-type"),
     housingTypeSelectOptionsElements: document
       .querySelector("#housing-type")
@@ -25,6 +25,7 @@
     housingGuestsSelectOptionsElements: document
       .querySelector("#housing-guests")
       .querySelectorAll("option"),
+
     noticeFormElement: document.querySelector(".notice__form"),
     noticeFormFieldsetsElements: document
       .querySelector(".notice__form")
@@ -51,14 +52,14 @@
     capacitySelectOptionsElements: document
       .querySelector("#capacity")
       .querySelectorAll("option"),
-
     noticeFormFeaturesInputElements: document
     .querySelector(".notice__form")
     .querySelector(".features").querySelectorAll("input"),
-
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
+
     templateElement: document.querySelector("template").content,
+    
     mapPinMainStartCoords: {
       mapPinMainOffSetLeft:
         document.querySelector(".map__pin--main").offsetLeft,
