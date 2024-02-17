@@ -36,9 +36,9 @@
     },
 
     onInputTypeFileChange: function (evt) {
-      uploadedFiles = evt.target.files;
+      var uploadedFiles = evt.target.files;
       for (var i = 0; i < uploadedFiles.length; i++) {
-        var coincidences = FILE_TYPE.some(function (item) {
+        var coincidences = FILE_TYPE.some(function () {
           return uploadedFiles[i].type.split("/")[1];
         });
         if (coincidences) {

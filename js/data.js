@@ -1,6 +1,7 @@
 (function () {
   window.data = {
     ads: [],
+    userAds: [],
     housingType: "any",
     housingPrice: "any",
     housingRoom: "any",
@@ -11,6 +12,9 @@
         page.bodyElement.removeChild(document.querySelector("#backend"));
       }
       window.jsonCallback = function (dataBackend) {
+        data.userAds.forEach (function (item) {
+          dataBackend.push(item);
+        });
         data.ads = dataBackend;
         page.data = dataBackend;
         data.ads.forEach(function (item) {

@@ -7,8 +7,12 @@
     mapPinMainElement: document.querySelector(".map__pin--main"),
     mapPinMainImgElement: document.querySelector(".map__pin--main").children[0],
 
-    mapFiltersContainerElement: document.querySelector(".map__filters-container"),
-    mapFiltersInputElements: document.querySelector(".map__filters-container").querySelectorAll("input"),
+    mapFiltersContainerElement: document.querySelector(
+      ".map__filters-container"
+    ),
+    mapFiltersInputElements: document
+      .querySelector(".map__filters-container")
+      .querySelectorAll("input"),
     housingTypeSelectElement: document.querySelector("#housing-type"),
     housingTypeSelectOptionsElements: document
       .querySelector("#housing-type")
@@ -30,19 +34,14 @@
     noticeFormFieldsetsElements: document
       .querySelector(".notice__form")
       .querySelectorAll("fieldset"),
-      
     avatarInputElement: document.querySelector("#avatar"),
     noticeFormPreviewImageElement: document
       .querySelector(".notice__preview")
       .querySelector("img"),
-
-
     imagesInputElement: document.querySelector("#images"),
     formPhotoUploadElement: document
       .querySelector(".form__photo-container")
       .querySelector(".upload"),
-
-
     addressInputElement: document.querySelector("#address"),
     typeSelectElement: document.querySelector("#type"),
     typeSelectOptionsElements: document
@@ -66,8 +65,9 @@
       .querySelector("#capacity")
       .querySelectorAll("option"),
     noticeFormFeaturesInputElements: document
-    .querySelector(".notice__form")
-    .querySelector(".features").querySelectorAll("input"),
+      .querySelector(".notice__form")
+      .querySelector(".features")
+      .querySelectorAll("input"),
     descriptionElement: document.querySelector("#description"),
     formResetElement: document.querySelector(".form__reset"),
 
@@ -86,7 +86,7 @@
         item.removeAttribute("disabled");
       });
     },
-    
+
     turnActiveState: function () {
       this.mapElement.classList.add("map--faded");
       this.noticeFormElement.classList.add("notice__form--disabled");
@@ -96,21 +96,23 @@
     },
 
     resetCheckedFeatures: function () {
-      page.mapFiltersInputElements.forEach (function (item) {
+      page.mapFiltersInputElements.forEach(function (item) {
         if (item.checked === true) {
           item.checked = false;
         }
       });
-      page.noticeFormFeaturesInputElements.forEach (function (item) {
+      page.noticeFormFeaturesInputElements.forEach(function (item) {
         if (item.checked === true) {
           item.checked = false;
         }
-      })
+      });
     },
 
-    data: []
+    data: [],
   };
-  
+
+  console.log (typeof page.data);
+
   form.fillInTheDefaultAddressInput();
 
   page.mapPinMainElement.addEventListener("mouseup", function () {
@@ -195,17 +197,35 @@
     document.addEventListener("mouseup", onMouseUp);
   });
 
-  page.avatarInputElement.addEventListener("change", form.onInputTypeFileChange);
+  page.avatarInputElement.addEventListener(
+    "change",
+    form.onInputTypeFileChange
+  );
 
-  page.imagesInputElement.addEventListener("change", form.onInputTypeFileChange);
+  page.imagesInputElement.addEventListener(
+    "change",
+    form.onInputTypeFileChange
+  );
 
-  page.typeSelectElement.addEventListener("change", form.onTypeSelectElementChange);
+  page.typeSelectElement.addEventListener(
+    "change",
+    form.onTypeSelectElementChange
+  );
 
-  page.timeinSelectElement.addEventListener("change", form.onTimeSelectElementChange);
+  page.timeinSelectElement.addEventListener(
+    "change",
+    form.onTimeSelectElementChange
+  );
 
-  page.timeoutSelectElement.addEventListener("change", form.onTimeSelectElementChange);
+  page.timeoutSelectElement.addEventListener(
+    "change",
+    form.onTimeSelectElementChange
+  );
 
-  page.roomNumberSelectElement.addEventListener("change", form.onRoomNumberSelectElementChange);
+  page.roomNumberSelectElement.addEventListener(
+    "change",
+    form.onRoomNumberSelectElementChange
+  );
 
   page.formResetElement.addEventListener("click", function () {
     form.onFormReset();
@@ -217,9 +237,50 @@
     }
   });
 
-  page.noticeFormElement.addEventListener("submit", function () {
+  page.noticeFormElement.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    var formData = new FormData(page.noticeFormElement);
+
+    var getSourceAvatar = function () {
+      if (formData.get("avatar").name !== "") {
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+          newAd.author.avatar = reader.result;
+        });
+        reader.readAsDataURL(formData.get("avatar"));
+      }
+    };
+    getSourceAvatar();
+
+    var newAd = {
+      "author": {
+        "avatar": "img/muffin.png",
+      },
+      "offer": {
+        "title": formData.get("title"),
+        "address": formData.get("address"),
+        "price": +formData.get("price"),
+        "type": formData.get("type"),
+        "rooms": +formData.get("rooms"),
+        "guests": +formData.get("capacity"),
+        "checkin": formData.get("timein"),
+        "checkout": formData.get("timeout"),
+        "features": formData.getAll("features"),
+        "description": formData.get("description"),
+        "photos": ["img/photosOfHousing/hotel2small.jpg"]
+      },
+      "location": {
+        "lat": Math.floor(Math.random() * 1200 + 1),
+        "lng": Math.ceil(Math.random() * (630 - 130) + 130)
+      }
+    };
+
+    data.userAds.push(newAd);
+    console.log(data.userAds);
+    newAd.author.avatar = "img/muffin.png";
+    form.onFormReset();
     alert(
-      "Информация о Вашем объявлении отправлена на сервер! Ожидайте публикацию в ближайшее время!"
+      "Информация о Вашем объявлении опубликована!"
     );
   });
 })();
